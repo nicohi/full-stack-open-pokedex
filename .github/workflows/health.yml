@@ -1,12 +1,15 @@
 name: Healthcheck
 
 on:
-  schedule:
-    #- cron:  '0,15,30,45,60 * * * *'
-    - cron:  '* * * * *'
+  #schedule:
+  #  #- cron:  '0,15,30,45,60 * * * *'
+  #  - cron:  '* * * * *'
   push:
     branches:
       - master
+  pull_request:
+    branches: [master]
+    types: [opened, synchronize]
 
 jobs:
   hello_world_job:
