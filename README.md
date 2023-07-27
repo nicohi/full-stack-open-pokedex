@@ -1,5 +1,7 @@
 # Full Stack open CI/CD
 
+The repo for exercise 11.20: [https://github.com/nicohi/fullstack_part11_app](https://github.com/nicohi/fullstack_part11_app)
+
 This repository is used for the CI/CD module of the Full stack open course
 
 Fork the repository to complete course exercises
