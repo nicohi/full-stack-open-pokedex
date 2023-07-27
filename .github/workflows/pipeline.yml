@@ -55,7 +55,7 @@ jobs:
           COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
         run: echo "$COMMIT_MESSAGES"
       - name: Bump version and push tag
-        if: ${{ github.event_name == 'push' }}
+        if: ${{ contains(join(github.event.commits.*.message), '#skip')}} && ${{ github.event_name == 'push' }}
         uses: anothrNick/github-tag-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
