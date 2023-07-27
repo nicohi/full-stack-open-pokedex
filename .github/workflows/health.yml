@@ -18,4 +18,11 @@ jobs:
       - name: Check the deployed service URL
         uses: jtalk/url-health-check-action@v3
         with:
-          url: https://full-stack-open-pokedex-w9m3.onrender.com/health
+          url: https://full-stack-open-pokedex-w9m3.onrender.com/healthaaa
+      - name: Test Failure
+        uses: rjstone/discord-webhook-notify@v1
+        if: failure()
+        with:
+          severity: error
+          details: Healthcheck failed
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
