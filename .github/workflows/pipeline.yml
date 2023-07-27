@@ -32,3 +32,12 @@ jobs:
           wait-on: http://localhost:5000
       - name: Trigger deploy to Render
         run: curl ${{ secrets.RENDER_TRIGGER }}
+  tag_release:
+    needs: [simple_deployment_pipeline]
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Bump version and push tag
+        if: ${{ github.event_name == 'push' }}
+        uses: anothrNick/github-tag-action@1.55.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
